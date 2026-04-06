@@ -1,5 +1,10 @@
 import { createSupabaseServerClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import { DashboardShell } from '@/components/dashboard/dashboard-shell'
+import { ChildProfileCard } from '@/components/dashboard/child-profile-card'
+import { RoutinesPanel } from '@/components/dashboard/routines-panel'
+import { CaregiverNotesFeed } from '@/components/dashboard/caregiver-notes-feed'
+import { NurseryChecklistCard } from '@/components/dashboard/nursery-checklist-card'
 
 export default async function DashboardPage() {
   const supabase = createSupabaseServerClient()
@@ -10,9 +15,11 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-      <p>Welcome to your SaeTurtle dashboard!</p>
-    </div>
+    <DashboardShell>
+      <ChildProfileCard />
+      <RoutinesPanel />
+      <CaregiverNotesFeed />
+      <NurseryChecklistCard />
+    </DashboardShell>
   )
 }
