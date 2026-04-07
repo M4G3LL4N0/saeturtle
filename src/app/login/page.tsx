@@ -8,17 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default async function LoginPage() {
-  try {
-    const supabase = await createSupabaseServerClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (user) {
-      redirect("/dashboard")
-    }
-  } catch (error) {
-    console.error('Login page auth check failed:', error)
-    // Continue to show login page
-  }
+  const user = await getAuthenticatedUser()
+  if (user) redirect("/dashboard")
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#07111f] px-6 py-16 text-white">

@@ -53,20 +53,18 @@ export async function createSupabaseServerClient() {
   return createClient()
 }
 
-export async function getSession() {
-  const supabase = await createClient()
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
-
-  return session
-}
-
-export async function getUser() {
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  return user
+export async function getAuthenticatedUser() {
+  try {
+    const supabase = await createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    
+    if (error || !user) {
+      console.warn('[Auth] User check failed:', error?.message)
+      return null
+    }
+    return user
+  } catch (error) {
+    console.error('[Auth] User check error:', error)
+    return null
+  }
 }
