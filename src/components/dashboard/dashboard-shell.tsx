@@ -12,7 +12,7 @@ export function DashboardShell({
   children,
 }: DashboardShellProps) {
   return (
-    <main className="min-h-screen bg-[#07111f] px-6 py-10 text-white lg:px-10">
+    <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,rgba(115,169,255,0.05),transparent),radial-gradient(ellipse_at_bottom_left,rgba(252,186,116,0.05),transparent)] bg-[oklch(0.11_0.02_260)] px-6 py-10 text-white lg:px-10">
       <div className="mx-auto max-w-7xl space-y-8">
         <div className="space-y-3">
           <p className="text-sm uppercase tracking-[0.24em] text-[#9fb7d9]">

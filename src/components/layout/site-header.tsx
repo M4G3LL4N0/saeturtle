@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.98),oklch(0.11_0.05_260/0.96))] bg-clip-padding backdrop-blur-xl supports-[backdrop-filter]:bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.8),oklch(0.11_0.05_260/0.7))]">
       <div className="container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-12">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-heading text-2xl font-semibold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">
+            <span className="font-heading text-2xl font-semibold tracking-tight bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] bg-clip-text text-transparent">
               SaeTurtle
             </span>
           </Link>
