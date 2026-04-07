@@ -102,10 +102,12 @@
     background-size: cover;
   }
   .card {
-    @apply backdrop-blur-lg bg-card/50 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.3)] rounded-2xl transition-all;
+    @apply backdrop-blur-lg bg-card/50 border border-white/10 rounded-2xl transition-all;
+    box-shadow: var(--elevation-2);
   }
   .card:hover {
-    @apply bg-card/70 shadow-[0_20px_100px_rgba(0,0,0,0.4)];
+    @apply bg-card/70;
+    box-shadow: var(--elevation-3);
   }
 }
 
