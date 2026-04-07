@@ -10,7 +10,13 @@
   --font-heading: var(--font-geist-sans);
   --font-display: var(--font-geist-sans);
   --text-base: 1rem;
-  --text-scale-ratio: 1.2;
+  --text-scale-ratio: 1.25;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --leading-tight: 1.1;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.6;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);

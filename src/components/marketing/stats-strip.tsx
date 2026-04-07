@@ -4,10 +4,10 @@ export function StatsStrip() {
       <div className="container">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
           <div className="flex flex-col items-center">
-            <span className="font-heading text-4xl font-bold bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] bg-clip-text text-transparent">
+            <span className="font-heading text-3xl font-bold tracking-tight bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] bg-clip-text text-transparent">
               95%
             </span>
-            <span className="mt-2 text-center text-sm text-white/72">
+            <span className="mt-1.5 text-center text-xs tracking-wide text-white/70">
               Parent Satisfaction Rate
             </span>
           </div>
