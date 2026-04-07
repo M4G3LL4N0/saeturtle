@@ -8,10 +8,16 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default async function LoginPage() {
-  const session = await getSession()
+  try {
+    const supabase = await createSupabaseServerClient()
+    const { data: { user } } = await supabase.auth.getUser()
 
-  if (session) {
-    redirect("/dashboard")
+    if (user) {
+      redirect("/dashboard")
+    }
+  } catch (error) {
+    console.error('Login page auth check failed:', error)
+    // Continue to show login page
   }
 
   return (

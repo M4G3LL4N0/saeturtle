@@ -18,30 +18,35 @@ function getSupabaseEnv() {
 }
 
 export async function createClient() {
-  const cookieStore = await cookies()
-  const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
+  try {
+    const cookieStore = await cookies()
+    const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
 
-  return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value
+    return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          try {
+            cookieStore.set({ name, value, ...options })
+          } catch (error) {
+            console.error('Failed to set cookie:', error)
+          }
+        },
+        remove(name: string, options: CookieOptions) {
+          try {
+            cookieStore.set({ name, value: "", ...options, maxAge: 0 })
+          } catch (error) {
+            console.error('Failed to remove cookie:', error)
+          }
+        },
       },
-      set(name: string, value: string, options: CookieOptions) {
-        try {
-          cookieStore.set({ name, value, ...options })
-        } catch {
-          // Server Components may not always be allowed to set cookies.
-        }
-      },
-      remove(name: string, options: CookieOptions) {
-        try {
-          cookieStore.set({ name, value: "", ...options, maxAge: 0 })
-        } catch {
-          // Server Components may not always be allowed to set cookies.
-        }
-      },
-    },
-  })
+    })
+  } catch (error) {
+    console.error('Failed to create Supabase client:', error)
+    throw error
+  }
 }
 
 export async function createSupabaseServerClient() {

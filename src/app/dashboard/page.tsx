@@ -9,12 +9,15 @@ import { NurseryChecklistCard } from "@/components/dashboard/nursery-checklist-c
 import { createSupabaseServerClient } from "@/lib/supabase/server"
 
 export default async function DashboardPage() {
-  const supabase = await createSupabaseServerClient()
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
+  try {
+    const supabase = await createSupabaseServerClient()
+    const { data: { user } } = await supabase.auth.getUser()
 
-  if (!session) {
+    if (!user) {
+      redirect("/login")
+    }
+  } catch (error) {
+    console.error('Dashboard auth check failed:', error)
     redirect("/login")
   }
 

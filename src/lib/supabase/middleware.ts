@@ -22,50 +22,44 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
-  const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
+  try {
+    const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
 
-  const supabase = createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
-    cookies: {
-      get(name: string) {
-        return request.cookies.get(name)?.value
+    const supabase = createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          response = NextResponse.next({
+            request,
+          })
+          response.cookies.set({
+            name,
+            value,
+            ...options,
+          })
+        },
+        remove(name: string, options: CookieOptions) {
+          response = NextResponse.next({
+            request,
+          })
+          response.cookies.set({
+            name,
+            value: "",
+            ...options,
+            maxAge: 0,
+          })
+        },
       },
-      set(name: string, value: string, options: CookieOptions) {
-        request.cookies.set({
-          name,
-          value,
-        })
+    })
 
-        response = NextResponse.next({
-          request,
-        })
-
-        response.cookies.set({
-          name,
-          value,
-          ...options,
-        })
-      },
-      remove(name: string, options: CookieOptions) {
-        request.cookies.set({
-          name,
-          value: "",
-        })
-
-        response = NextResponse.next({
-          request,
-        })
-
-        response.cookies.set({
-          name,
-          value: "",
-          ...options,
-          maxAge: 0,
-        })
-      },
-    },
-  })
-
-  await supabase.auth.getUser()
+    // Attempt to refresh session if exists
+    await supabase.auth.getSession()
+  } catch (error) {
+    console.error('Session update error:', error)
+    // Continue the request even if session refresh fails
+  }
 
   return response
 }
