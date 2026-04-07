@@ -1,11 +1,13 @@
 export function StatsStrip() {
   return (
-    <section className="border-y bg-background py-16">
+    <section className="border-y border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent)] py-20">
       <div className="container">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
           <div className="flex flex-col items-center">
-            <span className="font-heading text-4xl font-bold">95%</span>
-            <span className="mt-2 text-center text-sm text-muted-foreground">
+            <span className="font-heading text-4xl font-bold bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] bg-clip-text text-transparent">
+              95%
+            </span>
+            <span className="mt-2 text-center text-sm text-white/72">
               Parent Satisfaction Rate
             </span>
           </div>

@@ -10,7 +10,7 @@ import {
 
 export function ChildProfileCard() {
   return (
-    <Card className="border-white/10 bg-white/5 text-white">
+    <Card className="border-white/15 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] text-white backdrop-blur-lg">
       <CardHeader>
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
