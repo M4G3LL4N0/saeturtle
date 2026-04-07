@@ -6,12 +6,9 @@ function getSupabaseEnv() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  if (!supabaseUrl) {
-    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL")
-  }
-
-  if (!supabaseAnonKey) {
-    throw new Error("Missing NEXT_PUBLIC_SUPABASE_ANON_KEY")
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('[Auth] Missing Supabase env vars - proceeding without auth')
+    return null
   }
 
   return { supabaseUrl, supabaseAnonKey }
@@ -19,20 +16,30 @@ function getSupabaseEnv() {
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({
-    request,
+    request: {
+      headers: request.headers,
+    },
   })
 
   try {
-    const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
+    const env = getSupabaseEnv()
+    if (!env) return response // Skip auth if env vars missing
 
-    const supabase = createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+    const supabase = createServerClient<Database>(env.supabaseUrl, env.supabaseAnonKey, {
       cookies: {
         get(name: string) {
           return request.cookies.get(name)?.value
         },
         set(name: string, value: string, options: CookieOptions) {
+          request.cookies.set({
+            name, 
+            value,
+            ...options,
+          })
           response = NextResponse.next({
-            request,
+            request: {
+              headers: request.headers,
+            },
           })
           response.cookies.set({
             name,
@@ -41,12 +48,14 @@ export async function updateSession(request: NextRequest) {
           })
         },
         remove(name: string, options: CookieOptions) {
-          response = NextResponse.next({
-            request,
+          request.cookies.set({
+            name,
+            value: '',
+            ...options,
           })
           response.cookies.set({
             name,
-            value: "",
+            value: '',
             ...options,
             maxAge: 0,
           })
@@ -54,12 +63,12 @@ export async function updateSession(request: NextRequest) {
       },
     })
 
-    // Attempt to refresh session if exists
-    await supabase.auth.getSession()
-  } catch (error) {
-    console.error('Session update error:', error)
-    // Continue the request even if session refresh fails
-  }
+    // Refresh session if available - silent failure if not
+    await supabase.auth.getSession().catch(() => null)
 
-  return response
+    return response
+  } catch (error) {
+    console.error('[Auth] Session update suppressed:', error)
+    return response // Always return original response on error
+  }
 }
