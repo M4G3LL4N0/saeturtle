@@ -13,8 +13,8 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-2xl backdrop-blur-lg border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.3)] py-6 text-sm text-card-foreground transition-all",
-        "hover:shadow-[0_20px_100px_rgba(0,0,0,0.4)] hover:border-white/20",
+        "group/card flex flex-col gap-4 overflow-hidden rounded-xl backdrop-blur-lg border border-white/10 shadow-sm py-6 text-sm text-card-foreground transition-all",
+        "hover:shadow-md hover:border-white/15",
         "data-[variant=default]:bg-[rgba(255,255,255,0.04)] data-[variant=default]:hover:bg-[rgba(255,255,255,0.06)]",
         "data-[variant=elevated]:bg-[rgba(255,255,255,0.06)] data-[variant=elevated]:hover:bg-[rgba(255,255,255,0.08)]",
         "data-[variant=gradient]:bg-[linear-gradient(135deg,rgba(255,126,95,0.04),rgba(255,180,120,0.02))] data-[variant=gradient]:hover:bg-[linear-gradient(135deg,rgba(255,126,95,0.06),rgba(255,180,120,0.04))]",
