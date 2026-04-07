@@ -10,11 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] text-primary-foreground shadow-lg shadow-primary/20 hover:bg-[linear-gradient(90deg,oklch(0.86_0.21_50),oklch(0.83_0.19_52))] hover:shadow-primary/30 hover:translate-y-[-1px] transition-transform",
+          "bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] text-primary-foreground shadow-lg shadow-primary/30 hover:bg-[linear-gradient(90deg,oklch(0.86_0.21_50),oklch(0.83_0.19_52))] hover:shadow-primary/40 hover:translate-y-[-2px] transition-all duration-200",
         destructive:
-          "bg-[linear-gradient(90deg,oklch(0.75_0.25_20),oklch(0.72_0.25_22))] text-white shadow-sm hover:bg-[linear-gradient(90deg,oklch(0.77_0.26_20),oklch(0.74_0.26_22))]",
+          "bg-[linear-gradient(90deg,oklch(0.75_0.25_20),oklch(0.72_0.25_22))] text-white shadow-lg hover:bg-[linear-gradient(90deg,oklch(0.77_0.26_20),oklch(0.74_0.26_22))] hover:shadow-destructive/30 hover:translate-y-[-1px] transition-all",
         outline:
-          "border border-white/20 bg-white/5 text-white shadow-sm hover:bg-white/10 hover:text-white backdrop-blur-md",
+          "border border-white/20 bg-white/10 text-white shadow-sm hover:bg-white/20 hover:text-white backdrop-blur-lg transition-all",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/90",
         ghost: "hover:bg-white/10 hover:text-white",

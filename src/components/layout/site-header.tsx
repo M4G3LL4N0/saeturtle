@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.98),oklch(0.11_0.05_260/0.96))] bg-clip-padding backdrop-blur-xl supports-[backdrop-filter]:bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.8),oklch(0.11_0.05_260/0.7))]">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.98),oklch(0.11_0.05_260/0.96))] bg-clip-padding backdrop-blur-xl supports-[backdrop-filter]:bg-[linear-gradient(180deg,oklch(0.12_0.05_260/0.9),oklch(0.11_0.05_260/0.85))] shadow-sm">
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-12">
           <Link href="/" className="flex items-center space-x-2">

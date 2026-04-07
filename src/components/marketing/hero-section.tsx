@@ -3,10 +3,12 @@ import { cn } from "@/lib/utils"
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden isolate">
-      <div className="absolute inset-0 -z-20 opacity-20 [background:var(--glow-primary)]" />
-      <div className="absolute inset-0 -z-30 opacity-20 [background:var(--glow-secondary)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgb(59,7,100,0.25),transparent)]" />
+    <section className="relative overflow-hidden isolate min-h-[calc(100vh-80px)]">
+      <div className="absolute inset-0 -z-30 [background:var(--glow-primary)] opacity-30" />
+      <div className="absolute inset-0 -z-40 [background:var(--glow-secondary)] opacity-25" />
+      <div className="absolute inset-0 -z-50 [background:var(--glow-tertiary)] opacity-20" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,7,100,0.4),transparent)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(11,17,40,0.8),rgba(11,17,40,0.9))]" />
       
       <div className="container flex min-h-[calc(100vh-80px)] flex-col items-center justify-center gap-16 py-24 text-center">
         <div className="flex flex-col items-center max-w-4xl gap-10">
@@ -25,10 +27,10 @@ export function HeroSection() {
           </p>
         </div>
         <div className="flex gap-4">
-          <Button size="xl" asChild className="bg-primary/90 hover:bg-primary/100 shadow-lg shadow-primary/20">
+          <Button size="xl" asChild className="bg-primary/90 hover:bg-primary/100 shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all hover:translate-y-[-2px]">
             <a href="/onboarding">Get Started</a>
           </Button>
-          <Button variant="outline" size="xl" asChild className="border-white/20 bg-white/5 hover:bg-white/10 text-white">
+          <Button variant="outline" size="xl" asChild className="border-white/20 bg-white/10 hover:bg-white/20 text-white backdrop-blur-lg">
             <a href="/product">Learn More</a>
           </Button>
         </div>
