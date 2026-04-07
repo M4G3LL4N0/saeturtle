@@ -6,11 +6,14 @@ import { RecommendationsList } from "@/components/dashboard/recommendations-list
 import { RoutinesPanel } from "@/components/dashboard/routines-panel"
 import { CaregiverNotesFeed } from "@/components/dashboard/caregiver-notes-feed"
 import { NurseryChecklistCard } from "@/components/dashboard/nursery-checklist-card"
-import { createSupabaseServerClient } from "@/lib/supabase/server"
+import { getAuthenticatedUser } from "@/lib/supabase/server"
 
 export default async function DashboardPage() {
   const user = await getAuthenticatedUser()
-  if (!user) redirect("/login")
+
+  if (!user) {
+    redirect("/login")
+  }
 
   return (
     <DashboardShell

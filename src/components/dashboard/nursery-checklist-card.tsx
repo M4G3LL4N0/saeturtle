@@ -1,31 +1,40 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+const items = [
+  { id: "crib", label: "Crib or bassinet setup", checked: true },
+  { id: "lighting", label: "Soft lighting plan", checked: true },
+  { id: "sound", label: "Sound machine placement", checked: false },
+  { id: "storage", label: "Essentials storage flow", checked: true },
+  { id: "changing", label: "Changing station ready", checked: false },
+]
 
 export function NurseryChecklistCard() {
-  const items = [
-    { id: 1, label: "Diapers (6)", checked: true },
-    { id: 2, label: "Wipes", checked: true },
-    { id: 3, label: "Change of clothes", checked: false },
-    { id: 4, label: "Snacks", checked: false },
-    { id: 5, label: "Favorite toy", checked: false },
-  ]
-
   return (
-    <Card>
+    <Card className="border-white/10 bg-white/5 text-white">
       <CardHeader>
-        <CardTitle>Nursery Checklist</CardTitle>
+        <CardTitle>Nursery checklist</CardTitle>
+        <CardDescription className="text-white/65">
+          Keep the room calm, functional, and ready for real daily use.
+        </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-3">
+
+      <CardContent className="space-y-4">
         {items.map((item) => (
-          <div key={item.id} className="flex items-center space-x-2">
-            <Checkbox id={`item-${item.id}`} checked={item.checked} />
-            <label
-              htmlFor={`item-${item.id}`}
-              className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              {item.label}
-            </label>
-          </div>
+          <label
+            key={item.id}
+            htmlFor={item.id}
+            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-3"
+          >
+            <Checkbox id={item.id} checked={item.checked} />
+            <span className="text-sm text-white/78">{item.label}</span>
+          </label>
         ))}
       </CardContent>
     </Card>

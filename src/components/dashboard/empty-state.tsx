@@ -1,27 +1,15 @@
-import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
-
-export function EmptyState({
-  title,
-  description,
-  actionText,
-  onAction,
-}: {
+type EmptyStateProps = {
   title: string
   description: string
-  actionText: string
-  onAction: () => void
-}) {
+}
+
+export function EmptyState({ title, description }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border-2 border-dashed p-6 text-center">
-      <div className="space-y-2">
-        <h3 className="text-lg font-medium">{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
-      </div>
-      <Button onClick={onAction}>
-        <Plus className="mr-2 h-4 w-4" />
-        {actionText}
-      </Button>
+    <div className="rounded-2xl border border-dashed border-white/15 bg-black/20 p-6 text-white">
+      <h3 className="text-lg font-medium">{title}</h3>
+      <p className="mt-2 max-w-xl text-sm leading-6 text-white/65">
+        {description}
+      </p>
     </div>
   )
 }

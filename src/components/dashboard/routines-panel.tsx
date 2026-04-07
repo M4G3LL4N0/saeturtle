@@ -1,36 +1,63 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, Clock } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+const routines = [
+  {
+    time: "7:00 AM",
+    title: "Morning feeding",
+    detail: "Bottle + quiet wake-up routine",
+  },
+  {
+    time: "9:30 AM",
+    title: "Floor play",
+    detail: "Sensory mat and movement block",
+  },
+  {
+    time: "12:30 PM",
+    title: "Nap window",
+    detail: "Dim room, sound machine, sleep sack",
+  },
+  {
+    time: "6:45 PM",
+    title: "Evening wind-down",
+    detail: "Bath, low light, story, feeding",
+  },
+]
 
 export function RoutinesPanel() {
-  const routines = [
-    { time: "07:30", name: "Morning Routine", completed: true },
-    { time: "12:00", name: "Lunch & Nap", completed: false },
-    { time: "18:00", name: "Bedtime Routine", completed: false },
-  ]
-
   return (
-    <Card>
+    <Card className="border-white/10 bg-white/5 text-white">
       <CardHeader>
-        <CardTitle>Today's Routines</CardTitle>
+        <CardTitle>Today&apos;s routines</CardTitle>
+        <CardDescription className="text-white/65">
+          A calmer day starts with consistent handoffs and repeatable rhythms.
+        </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
-        {routines.map((routine) => (
-          <div key={routine.name} className="flex items-center gap-4">
-            <div className="flex-1">
-              <p className="font-medium">{routine.name}</p>
-              <p className="text-sm text-muted-foreground">{routine.time}</p>
+
+      <CardContent>
+        <div className="space-y-4">
+          {routines.map((routine, index) => (
+            <div key={`${routine.time}-${routine.title}`} className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <div className="h-3 w-3 rounded-full bg-[#f8c27a]" />
+                {index < routines.length - 1 ? (
+                  <div className="mt-2 h-full w-px bg-white/10" />
+                ) : null}
+              </div>
+
+              <div className="flex-1 rounded-2xl border border-white/10 bg-black/20 p-4">
+                <div className="text-sm text-[#f8c27a]">{routine.time}</div>
+                <div className="mt-1 text-base font-medium">{routine.title}</div>
+                <div className="mt-1 text-sm text-white/65">{routine.detail}</div>
+              </div>
             </div>
-            {routine.completed ? (
-              <CheckCircle className="h-5 w-5 text-green-500" />
-            ) : (
-              <Clock className="h-5 w-5 text-yellow-500" />
-            )}
-          </div>
-        ))}
-        <Button variant="outline" className="w-full">
-          Add Routine
-        </Button>
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

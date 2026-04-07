@@ -1,50 +1,52 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+const notes = [
+  {
+    author: "Mom",
+    time: "8:12 AM",
+    body: "Slept a little lighter than usual, but settled quickly after feeding.",
+  },
+  {
+    author: "Grandma",
+    time: "1:05 PM",
+    body: "Great nap. Woke up calm and playful. Loved the soft fabric book.",
+  },
+  {
+    author: "Dad",
+    time: "6:58 PM",
+    body: "Evening routine felt smoother tonight. Lower lights seemed to help.",
+  },
+]
 
 export function CaregiverNotesFeed() {
-  const notes = [
-    {
-      id: 1,
-      author: "Mom",
-      content: "Emma tried broccoli for the first time today! She made a funny face but ate it all.",
-      timestamp: "2 hours ago",
-    },
-    {
-      id: 2,
-      author: "Dad",
-      content: "Bedtime went smoothly tonight. Read 'Goodnight Moon' twice.",
-      timestamp: "Yesterday",
-    },
-  ]
-
   return (
-    <Card>
+    <Card className="border-white/10 bg-white/5 text-white">
       <CardHeader>
-        <CardTitle>Caregiver Notes</CardTitle>
+        <CardTitle>Caregiver notes</CardTitle>
+        <CardDescription className="text-white/65">
+          Shared observations keep everyone more aligned.
+        </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-4">
-          {notes.map((note) => (
-            <div key={note.id} className="flex gap-3">
-              <Avatar>
-                <AvatarFallback>{note.author[0]}</AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <p className="font-medium">{note.author}</p>
-                  <p className="text-sm text-muted-foreground">{note.timestamp}</p>
-                </div>
-                <p className="text-sm">{note.content}</p>
-              </div>
+
+      <CardContent className="space-y-4">
+        {notes.map((note) => (
+          <div
+            key={`${note.author}-${note.time}`}
+            className="rounded-2xl border border-white/10 bg-black/20 p-4"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <p className="font-medium">{note.author}</p>
+              <p className="text-xs text-white/45">{note.time}</p>
             </div>
-          ))}
-        </div>
-        <div className="space-y-3">
-          <Textarea placeholder="Add a note about today..." />
-          <Button className="w-full">Save Note</Button>
-        </div>
+            <p className="mt-2 text-sm leading-6 text-white/68">{note.body}</p>
+          </div>
+        ))}
       </CardContent>
     </Card>
   )

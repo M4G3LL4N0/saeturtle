@@ -1,7 +1,22 @@
-import { createBrowserClient } from '@supabase/ssr'
+import { createBrowserClient } from "@supabase/ssr"
+import type { Database } from "@/types/database"
 
-export const createClient = () =>
-  createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+function getSupabaseEnv() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!supabaseUrl) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL")
+  }
+
+  if (!supabaseAnonKey) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_ANON_KEY")
+  }
+
+  return { supabaseUrl, supabaseAnonKey }
+}
+
+export function createClient() {
+  const { supabaseUrl, supabaseAnonKey } = getSupabaseEnv()
+  return createBrowserClient<Database>(supabaseUrl, supabaseAnonKey)
+}
