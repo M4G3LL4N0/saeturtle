@@ -14,13 +14,13 @@ export function FeatureGrid() {
             Thoughtfully crafted features to simplify and enhance early family life
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-8 backdrop-blur-lg">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               <h3 className="font-heading text-2xl font-semibold bg-[linear-gradient(90deg,oklch(0.85_0.2_50),oklch(0.82_0.18_52))] bg-clip-text text-transparent">
                 Milestone Tracking
               </h3>
-              <p className="text-white/72">
+              <p className="text-white/75 leading-7">
                 Monitor and celebrate your child's developmental progress with intuitive tracking tools
               </p>
             </div>

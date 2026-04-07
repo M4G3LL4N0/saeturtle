@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button"
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden border-t border-white/10 py-24">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent)]" />
-      <div className="absolute inset-0 -z-20 [background:var(--glow-primary)] opacity-20" />
+    <section className="relative overflow-hidden border-t border-white/15 py-24">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent)]" />
+      <div className="absolute inset-0 -z-20 [background:var(--glow-primary)] opacity-25" />
+      <div className="absolute inset-0 -z-30 bg-[radial-gradient(ellipse_at_top,rgba(115,169,255,0.08),transparent)]" />
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-4xl font-bold tracking-tight">
