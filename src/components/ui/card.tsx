@@ -13,9 +13,9 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-xl backdrop-blur-lg border border-white/10 shadow-sm py-6 text-sm text-card-foreground transition-all",
-        "hover:shadow-md hover:border-white/15",
-        "data-[variant=default]:bg-[rgba(255,255,255,0.04)] data-[variant=default]:hover:bg-[rgba(255,255,255,0.06)]",
+        "group/card flex flex-col gap-3 overflow-hidden rounded-xl backdrop-blur-lg border border-white/5 shadow-sm py-5 px-6 text-sm text-card-foreground transition-all",
+        "hover:border-white/10",
+        "data-[variant=default]:bg-[rgba(255,255,255,0.03)] data-[variant=default]:hover:bg-[rgba(255,255,255,0.04)]",
         "data-[variant=elevated]:bg-[rgba(255,255,255,0.06)] data-[variant=elevated]:hover:bg-[rgba(255,255,255,0.08)]",
         "data-[variant=gradient]:bg-[linear-gradient(135deg,rgba(255,126,95,0.04),rgba(255,180,120,0.02))] data-[variant=gradient]:hover:bg-[linear-gradient(135deg,rgba(255,126,95,0.06),rgba(255,180,120,0.04))]",
         "has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0",

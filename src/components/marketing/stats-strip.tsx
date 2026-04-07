@@ -12,8 +12,8 @@ export function StatsStrip() {
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="font-heading text-4xl font-bold">10k+</span>
-            <span className="mt-2 text-center text-sm text-muted-foreground">
+            <span className="font-heading text-xl font-medium">10k+</span>
+            <span className="mt-1 tracking-tight text-center text-xs text-muted-foreground">
               Families Supported
             </span>
           </div>
