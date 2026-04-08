@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Baby, ClipboardList, Sparkles, Users, CheckCircle, HeartPulse } from "lucide-react"
+import { ArrowRight, Baby, ClipboardList, Sparkles, Users, CheckCircle, HeartPulse, Target } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
