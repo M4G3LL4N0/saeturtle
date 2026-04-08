@@ -15,7 +15,13 @@ const items = [
   { id: "changing", label: "Changing station ready", checked: false },
 ]
 
-export function NurseryChecklistCard() {
+interface ChecklistProps {
+  completedItems: number
+  totalItems: number
+  lastUpdated: string
+}
+
+export function NurseryChecklistCard({ checklist }: { checklist: ChecklistProps }) {
   return (
     <Card className="border-white/10 bg-white/5 text-white">
       <CardHeader>
@@ -26,6 +32,12 @@ export function NurseryChecklistCard() {
       </CardHeader>
 
       <CardContent className="space-y-4">
+        <div className="flex items-center justify-between pb-2 text-sm text-white/60">
+          <span>
+            {checklist.completedItems} of {checklist.totalItems} completed
+          </span>
+          <span>Updated {checklist.lastUpdated}</span>
+        </div>
         {items.map((item) => (
           <label
             key={item.id}
