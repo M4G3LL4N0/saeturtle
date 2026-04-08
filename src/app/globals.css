@@ -38,6 +38,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* Account for fixed header height */
+}
+
+/* Smooth scroll offset for anchor links */
+:target {
+  scroll-margin-top: 6rem;
 }
 
 body {
@@ -120,7 +126,8 @@ a {
       rgba(255, 255, 255, 0.08) 0%,
       rgba(255, 255, 255, 0.04) 100%
     );
-    @apply border border-white/10 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.28)];
+    @apply border border-white/10 backdrop-blur-xl;
+    @apply shadow-[0_20px_80px_rgba(0,0,0,0.28)] transition-all hover:border-white/20 hover:shadow-[0_20px_80px_rgba(0,0,0,0.4)];
   }
 
   .text-balance {
