@@ -7,6 +7,7 @@ import { ChildProfileCard } from "@/components/dashboard/child-profile-card"
 import { RecommendationsList } from "@/components/dashboard/recommendations-list"
 import { RoutinesPanel } from "@/components/dashboard/routines-panel"
 import { CaregiverNotesFeed } from "@/components/dashboard/caregiver-notes-feed"
+import { MilestonesTracker } from "@/components/dashboard/milestones-tracker"
 import { NurseryChecklistCard } from "@/components/dashboard/nursery-checklist-card"
 import { getAuthenticatedUser } from "@/lib/supabase/server"
 
@@ -31,6 +32,7 @@ export default async function DashboardPage() {
 
         <div className="space-y-6">
           <NurseryChecklistCard />
+          <MilestonesTracker />
           <CaregiverNotesFeed />
           <Card className="border-white/10 bg-white/5 text-white">
             <CardHeader>

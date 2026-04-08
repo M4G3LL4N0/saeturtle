@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Baby, ClipboardList, Sparkles, Users } from "lucide-react"
+import { ArrowRight, Baby, ClipboardList, Sparkles, Users, CheckCircle } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -31,6 +31,11 @@ const features = [
     title: "Caregiver coordination",
     description: "Keep parents, sitters, grandparents, and helpers aligned.",
     icon: Users,
+  },
+  {
+    title: "Milestones tracking",
+    description: "Celebrate developmental progress with guidance and insights.",
+    icon: CheckCircle,
   },
 ]
 
