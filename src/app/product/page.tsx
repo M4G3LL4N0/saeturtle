@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Baby, ClipboardList, Sparkles, Users, CheckCircle } from "lucide-react"
+import { ArrowRight, Baby, ClipboardList, Sparkles, Users, CheckCircle, HeartPulse } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -36,6 +36,11 @@ const features = [
     title: "Milestones tracking",
     description: "Celebrate developmental progress with guidance and insights.",
     icon: CheckCircle,
+  },
+  {
+    title: "Health tracking",
+    description: "Monitor vital signs, medications, and health records in one place.",
+    icon: HeartPulse,
   },
 ]
 
