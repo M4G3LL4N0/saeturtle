@@ -36,11 +36,42 @@ export default async function DashboardPage() {
         </div>
 
         <div className="space-y-6">
-          <NurseryChecklistCard />
-          <HealthTracker />
+          <NurseryChecklistCard 
+            completedItems={3}
+            totalItems={8} 
+            lastUpdated="today"
+          />
+          <HealthTracker 
+            vitals={{
+              height: "72cm (+2cm)",
+              weight: "8.4kg (+0.3kg)",
+              temperature: "36.8°C"
+            }}
+            immunizations={[
+              { name: "DTaP", due: "up-to-date" },
+              { name: "MMR", due: "in 2 weeks" }
+            ]}
+          />
           <MilestonesTracker />
           <FamilyGoalsCard />
-          <CaregiverNotesFeed />
+          <CaregiverNotesFeed 
+            recentNotes={[
+              {
+                author: "Grandma Sue",
+                time: "2h ago",
+                content: "Sophie had a great nap from 1-3pm. Ate all her lunch!"
+              },
+              {
+                author: "Michael",
+                time: "Yesterday",
+                content: "Administered the 5pm dose of amoxicillin as prescribed"
+              }
+            ]}
+            unconfirmedChanges={[
+              "Updated nap preferences",
+              "Modified medication schedule"
+            ]}
+          />
           
           <Card className="border-white/10 bg-white/5 text-white">
             <CardHeader>
