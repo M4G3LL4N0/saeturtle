@@ -10,6 +10,7 @@ import { CaregiverNotesFeed } from "@/components/dashboard/caregiver-notes-feed"
 import { MilestonesTracker } from "@/components/dashboard/milestones-tracker"
 import { NurseryChecklistCard } from "@/components/dashboard/nursery-checklist-card"
 import { HealthTracker } from "@/components/dashboard/health-tracker"
+import { FamilyGoalsCard } from "@/components/dashboard/family-goals-card"
 import { getAuthenticatedUser } from "@/lib/supabase/server"
 
 export default async function DashboardPage() {
@@ -35,6 +36,7 @@ export default async function DashboardPage() {
           <NurseryChecklistCard />
           <HealthTracker />
           <MilestonesTracker />
+          <FamilyGoalsCard />
           <CaregiverNotesFeed />
           <Card className="border-white/10 bg-white/5 text-white">
             <CardHeader>

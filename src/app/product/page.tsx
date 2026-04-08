@@ -42,6 +42,11 @@ const features = [
     description: "Monitor vital signs, medications, and health records in one place.",
     icon: HeartPulse,
   },
+  {
+    title: "Family goals",
+    description: "Set and track shared goals for your family's growth and development.",
+    icon: Target,
+  },
 ]
 
 export default function ProductPage() {
