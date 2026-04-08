@@ -11,6 +11,12 @@ import { HealthTracker } from "@/components/dashboard/health-tracker"
 import { FamilyGoalsCard } from "@/components/dashboard/family-goals-card"
 import { RoutinesPanel } from "@/components/dashboard/routines-panel"
 import { NurseryChecklistCard } from "@/components/dashboard/nursery-checklist-card"
+
+interface NurseryChecklistProps {
+  completedItems: number
+  totalItems: number
+  lastUpdated: string
+}
 import { getAuthenticatedUser } from "@/lib/supabase/server"
 
 export default async function DashboardPage() {
