@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "install": "pnpm install",
+    "dev": "pnpm install && next dev",
+    "build": "pnpm install && next build",
+    "start": "pnpm install && next start",
     "lint": "eslint"
   },
   "dependencies": {
